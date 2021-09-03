@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react'
+import React, { Fragment,useContext } from 'react';
+import PokemonContext from '../../context/PokemonContext';
+
 import Ability from '../Ability/Ability';
 
-const AbilitiesList = ({abilities}) => {
-    
+const AbilitiesList = () => {
+    const {selectedAbilities} = useContext(PokemonContext);
     return ( 
         <Fragment>
-            {abilities.map(ability=>(
+            {selectedAbilities.map(ability=>(
                 <Ability ability={ability} />
             ))}
         </Fragment>

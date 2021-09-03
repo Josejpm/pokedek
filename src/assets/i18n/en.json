@@ -1,0 +1,26 @@
+{
+    "locale" : "en-us",
+    "loginPage" : {
+            "login" : "Log in",
+            "placeholder":"Email or phone number",
+            "placeholder2":"Password",
+            "facebook":"Log in with Facebook",
+            "captcha":"This page is protected by Google reCAPTCHA to ensure you're not a bot. ",
+            "firstTime":"New to Netflix?",
+            "subscribe":"Sign up now",
+            "needHelp":"Need help?",
+            "remember":"Remember me",
+            "moreInfo":"More Info",
+            "error1":"Please enter a valid email or phone number.",
+            "error2":"Your password must contain between 4 and 60 characters.",
+            "showP":"SHOW",
+    "hideP":"HIDE"
+    },
+    "footer" : {
+            "questions":"Questions? Call 0-800-123-4567",
+            "giftCard":"Gift Card Terms",
+            "terms":"Terms of use",
+            "privacy":"Privacy Statement"
+    }
+
+}

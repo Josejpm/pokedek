@@ -1,0 +1,8 @@
+.poke-card{
+    flex: 1;
+    cursor: pointer;
+
+    .poke-name{
+        text-transform: capitalize;
+    }
+}
