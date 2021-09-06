@@ -1,23 +1,9 @@
-import React, { useEffect,useContext } from 'react';
-import axiosClient from '../../config/axios';
-import PokemonContext from '../../context/PokemonContext';
+import React from 'react';
 
-const DescriptionsList = () => {
-
-    const {selectedSpecies} = useContext(PokemonContext)
-
-    useEffect(() => {
-        const apiCall = async()=>{
-            const resp = await axiosClient.get(`/pokemon-species/${selectedSpecies}`);
-        }
-        apiCall()
-
-    }, [])
-
-
+const DescriptionsList = ({description}) => {
 
     return ( 
-        <h1>Description List</h1>
+        <p>{description}</p>
     );
 }
  

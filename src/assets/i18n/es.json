@@ -1,26 +1,17 @@
 {
 	"locale" 	: "es-ar",
-	"loginPage" 	: {
-		"login" : "Inicia Sesión",
-		"placeholder":"Email o número de teléfono",
-		"placeholder2":"Contraseña",
-		"facebook":"Iniciar sesión con Facebook",
-		"captcha":"Esta página está protegida por Google reCAPTCHA para comprobar que no eres un robot.",
-		"firstTime":"¿Primera vez en Netflix?",
-		"subscribe":"Suscríbete ya.",
-		"needHelp":"¿Necesitas ayuda?",
-		"remember":"Recuérdame",
-		"moreInfo":"Más Info",
-		"error1":"Ingresa un email o un número de teléfono válido.",
-		"error2":"La contraseña debe tener entre 4 y 60 caracteres.",
-		"showP":"MOSTRAR",
-		"hideP":"OCULTAR"
+	"paginator" : {
+		"next":"Siguiente",
+		"prev":"Anterior"
 	},
-	"footer" : {
-		"questions":"¿Preguntas? Llama al 800-123-4567",
-		"giftCard":"Términos de las tarjetas de regalo",
-		"terms":"Términos de uso",
-		"privacy":"Declaración de privacidad"
+	"pokemon-details":{
+		"pokeAbilities":"Habilidades",
+		"specieLoading":"La especie estara disponible pronto...",
+        "descLoading":"La descripcion estara disponible pronto..."
+	},
+	"hero":{
+        "title":"Encuentra info de tu Pokemon favorito"
 	}
+
 
 }

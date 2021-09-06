@@ -1,24 +1,19 @@
-import React,{Fragment,useState,useContext,useEffect} from 'react';
+import React,{useState,useEffect} from 'react';
 import {useParams,Redirect} from 'react-router-dom';
-import { translate } from 'react-translate';
-
-//Context
-import PokemonContext from '../context/PokemonContext';
+import './scss/dashboard.scss'
 
 //Components
-import LanguageSelect from '../components/LanguageSelect';
 import PokemonList from '../components/PokemonList/PokemonList';
-import Paginator from '../components/Paginator/Paginator';
+import Hero from '../components/Hero/Hero';
 
-const Dashboard = ({t}) => {
+const Dashboard = () => {
 
     const {page}=useParams();
-    const [actualpage,setActualPage] = useState(Number(page));
-    const {footerValues} = useContext(PokemonContext)
-    const { questions }=footerValues
-
+    const [actualPage,setActualPage] = useState(Number(page));
+    
+    
     useEffect(() => {
-        setActualPage(Number(page))
+        setActualPage(Number(page));
     }, [page]);
 
     if(!page) {
@@ -27,13 +22,12 @@ const Dashboard = ({t}) => {
 
 
     return ( 
-        <Fragment>
-            <h1> {t(questions)} </h1>
-            <LanguageSelect/>
-            <PokemonList page={actualpage} />
-            <Paginator page={actualpage} setPage={setActualPage} />
-        </Fragment>
+        <div className="main-container">
+            <Hero/>
+            <PokemonList page={actualPage} setActualPage={setActualPage} />
+        </div>
+
      );
 }
  
-export default translate ('footer')(Dashboard);
+export default Dashboard;

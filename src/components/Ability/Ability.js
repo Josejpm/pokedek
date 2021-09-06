@@ -1,24 +1,18 @@
 import React,{useEffect,useState,useContext} from 'react';
-import axiosClient from '../../config/axios';
-import PokemonContext from '../../context/PokemonContext'
+import PokemonContext from '../../context/PokemonContext';
+import {getAbility} from '../../services/getApiInfo';
+
 const Ability = ({ability}) => {
     const {language}=useContext(PokemonContext);
-    const {ability:{name}}=ability;
     const [langAbility,setLangAbility]=useState('');
+    const {ability:{name}}=ability;
 
     useEffect(() => {
-        const apiCall= async ()=>{
-            const resp = await axiosClient.get(`/ability/${name}`);
-            const langName = resp.data.names.filter(name=>(
-                name.language.name === language
-            ))
-            setLangAbility(langName[0].name)
-        }
-        apiCall()
+        getAbility(name,language).then( info=> setLangAbility(info) )
     }, [])
 
     return ( 
-        <h3>{langAbility}</h3>
+        <li>{langAbility}</li>
      );
 }
  

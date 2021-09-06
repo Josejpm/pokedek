@@ -5,11 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import PokemonProvider from './context/PokemonProvider';
 
+
 ReactDOM.render(
   <React.StrictMode>
-    <PokemonProvider>
-      <App />
-    </PokemonProvider>
+      <PokemonProvider>
+        <App />
+      </PokemonProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

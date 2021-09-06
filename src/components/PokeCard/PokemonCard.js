@@ -1,44 +1,40 @@
-import React,{Fragment, useEffect,useState,useContext} from 'react'
+import React,{useEffect,useState,useContext} from 'react'
 import {useHistory,useParams} from 'react-router-dom'
-import axiosClient from '../../config/axios';
+import {getPokemonDetail} from '../../services/getApiInfo';
 import './PokemonCard.scss';
 
 //Context
 import PokemonContext from '../../context/PokemonContext';
+import Spinner from '../Spinner/Spinner';
 
 
 const PokemonCard = ({pokemon}) => {
     const history = useHistory();
     const {page}=useParams();
-    const {setSelectedAbilities,setSelectedSpecies,setPokemonPage} = useContext(PokemonContext);
-    const [pokemonStats,setPokemonStats] = useState({})
-    const {name,url} = pokemon;
+    const {setSelectedPokemon} = useContext(PokemonContext);
+    const [pokemonDetail,setPokemonDetail] = useState({})
+    const {url} = pokemon;
     
     useEffect(() => {
-        const apiCall = async ()=>{
-            const resp = await axiosClient.get(url);
-            setPokemonStats(resp.data)
-        }
-        apiCall()
+        getPokemonDetail(url).then( detail =>setPokemonDetail(detail) )
     }, []);
 
-    const {sprites,abilities,id,species}=pokemonStats;
+    const {sprites,abilities,id,species,name,stats}=pokemonDetail;
 
     const handleClick = ()=>{
-        setSelectedAbilities(abilities);
-        setSelectedSpecies(species.name);
+        setSelectedPokemon({name,abilities,sprites,species,stats});
         history.push(`/details/${page}/${id}`);
     }
 
     return (
-        <Fragment>
             <div onClick={()=>handleClick()} className="poke-card">
-                {sprites ? <img width="200px" height="200px" src={sprites.other.dream_world.front_default}/> : null }
+                    {sprites 
+                        ? <img className="poke-img" src={sprites.other['official-artwork'].front_default}/> 
+                        : <Spinner/>
+                    }
                 <h1 className="poke-name" >{(name)}</h1>
-            </div>
-        </Fragment> 
-        
-     );
+        </div>
+    );
 }
  
 export default PokemonCard;

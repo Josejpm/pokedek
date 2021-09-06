@@ -1,28 +1,44 @@
 import React,{useContext} from 'react'
-import {useHistory} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { translate } from 'react-translate';
 import PokemonContext from '../../context/PokemonContext';
+import TranslateContext from '../../context/TranslateContext';
 import './Paginator.scss'
 
 const Paginator = ({page,t}) => {
-    const history = useHistory();
-    const {footerValues} = useContext(PokemonContext)
-    const { questions }=footerValues
+    const {paginatorValues} = useContext(TranslateContext);
+    const { next,prev }=paginatorValues;
+    const {totalPages}=useContext(PokemonContext)
     return ( 
 
         <div className="paginator" >
-            <button 
+            <div className="buttons-container">
+
+            <Link 
                 className={page===1 ? "disabled-button" : "enabled-button prev " } 
-                onClick={()=>history.push(`/main/${page-1}`)} 
-            > {t(questions)}</button>
-                <p>{page}</p>
-            <button  
-                className="enabled-button next " 
-                onClick={()=>history.push(`/main/${page+1}`)}
-            >Next</button>
+                to={`/main/${page-10}`}
+            > -10 </Link>
+
+            <Link 
+                className={page===1 ? "disabled-button" : "enabled-button prev " } 
+                to={`/main/${page-1}`}
+            > {t(prev)}</Link>
+
+            <p className="paginator-number actual" >{page}</p>
+<Link 
+                className={page===totalPages ? "disabled-button" : "enabled-button next " } 
+                to={`/main/${page+1}`}
+            > {t(next)}</Link>
+              
+
+            <Link  
+                className={page===totalPages ? "disabled-button" : "enabled-button next " }  
+                to={`/main/${page+10}`}
+            > +10 </Link>
+            </div>
         </div>
 
      );
 }
  
-export default translate ('footer')(Paginator)
+export default translate ('paginator')(Paginator)

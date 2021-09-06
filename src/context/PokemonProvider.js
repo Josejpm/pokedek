@@ -3,46 +3,23 @@ import PokemonContext from './PokemonContext';
 
 const PokemonProvider = ({children}) => {
     
-    const [selectedAbilities,setSelectedAbilities] = useState([]);
+    const [selectedPokemon,setSelectedPokemon] = useState(null);
     const [language,setLanguage] = useState('es');
     const [selectedSpecies,setSelectedSpecies] = useState('');
+    const [totalPages,setTotalPages] = useState(0);
 
-    const loginValues = {
-        title:"login",
-        input1:"placeholder",
-        input2:"placeholder2",
-        facebook:"facebook",
-        captcha:"captcha",
-        firstTime:"firstTime",
-        subscribe:"subscribe",
-        needHelp:"needHelp",
-        remember:"remember",
-        moreInfo:"moreInfo",
-        error1:"error1",
-        error2:"error2",
-        showP:"showP",
-        hideP:"hideP"
-      }
-    
-    const footerValues = {
-        questions:"questions",
-        giftCard:"giftCard",
-        terms:"terms",
-        privacy:"privacy"
-      }
-    
-    
+   
     return ( 
         <PokemonContext.Provider
             value={{
-                selectedAbilities,
+                selectedPokemon,
                 language,
                 selectedSpecies,
-                loginValues,
-                footerValues,
-                setSelectedAbilities,
+                totalPages,
+                setSelectedPokemon,
                 setLanguage,
                 setSelectedSpecies,
+                setTotalPages
             }}
         >
 

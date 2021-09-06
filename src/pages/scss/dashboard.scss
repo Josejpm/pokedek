@@ -1,0 +1,13 @@
+
+.main-container{
+    margin: 5vh auto;
+    max-width: 90vw;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.87);
+    box-shadow: 0 7px 10px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}

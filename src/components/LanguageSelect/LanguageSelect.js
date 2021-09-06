@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import PokemonContext from '../context/PokemonContext'
+import PokemonContext from '../../context/PokemonContext';
+import './languageSelect.scss'
 
 const LanguageSelect = () => {
 
