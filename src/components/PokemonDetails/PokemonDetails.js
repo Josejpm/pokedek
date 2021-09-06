@@ -11,11 +11,14 @@ const PokemonDetails = ({t}) => {
     const {selectedPokemon:{name,sprites},language} = useContext(PokemonContext);
     const {description,specie} = usePokeInfo(name,language);
     const {pokeDetails:{specieLoading,descLoading}} = useContext (TranslateContext);
+    
+    const imageURL = (sprites.other.dream_world.front_default === null) ? sprites.other['official-artwork'].front_default : sprites.other.dream_world.front_default
+
     return ( 
         <Fragment>
             <div className="details-container">
                 <div className="details-background">
-                    <img className="poke-image" src={sprites.other.dream_world.front_default} />
+                    <img className="poke-image" src={imageURL} />
                 </div>
             
                 <div className="details-body">

@@ -15,7 +15,7 @@ const Paginator = ({page,t}) => {
             <div className="buttons-container">
 
             <Link 
-                className={page===1 ? "disabled-button" : "enabled-button prev " } 
+                className={page<=10 ? "disabled-button" : "enabled-button prev " } 
                 to={`/main/${page-10}`}
             > -10 </Link>
 
@@ -32,7 +32,7 @@ const Paginator = ({page,t}) => {
               
 
             <Link  
-                className={page===totalPages ? "disabled-button" : "enabled-button next " }  
+                className={page>=totalPages-10 ? "disabled-button" : "enabled-button next " }  
                 to={`/main/${page+10}`}
             > +10 </Link>
             </div>
